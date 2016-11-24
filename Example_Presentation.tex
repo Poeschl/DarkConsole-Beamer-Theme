@@ -1,0 +1,126 @@
+% Encoding: UTF-8
+% chktex-file 36 % disable -, --, --- check
+
+% Use this if you generate the presentation itself.
+\documentclass[final, ngerman, xcolor=pdftex, dvipsnames, table, aspectratio=169, 14pt]{beamer}
+
+% Use this documentclass line for generating the handout
+% \documentclass[final, ngerman, xcolor=pdftex, dvipsnames, table, handout, aspectratio=169]{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{droid}
+
+\usepackage{pgfpages}
+
+% Set the right notes display after your preference
+\setbeameroption{hide notes}
+% \setbeameroption{show notes}
+% \setbeameroption{show notes on second screen=right}
+% \setbeameroption{show only notes}
+
+\setbeamerfont{note date}{size=\scriptsize}
+\setbeamerfont{note title}{size=\footnotesize}
+\setbeamerfont{note page}{size=\footnotesize}
+
+\usepackage{graphicx}
+
+\usepackage[outputdir=build, cachedir=.]{minted}
+\usemintedstyle{borland}
+
+\usetheme{DarkConsole}
+
+\graphicspath{./pictures/}
+
+\begin{document}
+
+% The metadata of the presentation
+\title[Short title]{Long title}
+\subtitle[Short sub title]{Long sub title}
+\author[]{Mario Mario\footnote{\texttt{mario@plumber.de}}}
+\date{\today} % Replace with date of the presentation
+
+
+\begin{frame}
+  \maketitle
+  \note{
+    I'm the note from the title page.
+  }
+\end{frame}
+
+\section*{I'm a hidden Section}
+\begin{frame}{Table of Content} % This is the list of content with all the sections of the presentation
+    \tableofcontents
+\end{frame}
+
+\section{First Section}
+
+\begin{frame}{Animated Slides}
+
+  \onslide<1-3>{ %chktex 8
+    I'm here from the first step
+  }
+
+  \onslide<2->{
+    I'm here from the second step
+  }
+
+  \onslide<-2>{
+    I'm here until the second step
+  }
+  \note{
+    A lot to say, bla bla bla
+  }
+\end{frame}
+
+\begin{frame}{Blocks}
+  \begin{block}{I'm a block}
+      Some text inside.
+  \end{block}
+  \begin{alertblock}{I'm a alertblock}
+      Some alert. Weueueueueu
+  \end{alertblock}
+  \begin{exampleblock}{I'm a exampleblock}
+      Some stuff to look at
+  \end{exampleblock}
+\end{frame}
+
+\section{Show code samples}
+
+
+\begin{frame}[fragile]{Example Code}
+    \usemintedstyle{native}
+    \large\begin{minted}[autogobble=true,escapeinside=??]{java}
+        @Annotation
+        class Foo {
+            @VeryImportant
+            Bar something(int a) {
+                return new Bar(a);
+            }
+        }
+    \end{minted}
+    \note{
+    \begin{itemize}
+        \item Something to tell
+    \end{itemize}
+    }
+\end{frame}
+
+\section*{System.exit()}
+
+\begin{frame}{System.exit()}
+  \Large End slide  
+  \includegraphics{pictures/GitHub-Mark.pdf}
+\end{frame}
+
+\section*{References}
+\begin{frame}[allowframebreaks]{Quellen}
+  \nocite{web.daggerdoc}
+  \nocite{web.postDagger2}
+  \small
+  \bibliographystyle{unsrt}
+  \bibliography{references}
+\end{frame}
+
+\end{document}
