@@ -2,7 +2,7 @@ sudo: required
 
 before_install:
 - wget -O .buildscripts/install-tl-ubuntu https://github.com/scottkosty/install-tl-ubuntu/raw/master/install-tl-ubuntu
-- chmod +x .buildscripts/install-tl-ubuntu && sudo .buildscripts/install-tl-ubuntu --profile texlive.profile
+- chmod +x .buildscripts/install-tl-ubuntu && sudo .buildscripts/install-tl-ubuntu --profile .buildscripts/texlive.profile
 - sudo tlmgr install droid graphicx minted pgfpages fvextra upquote
 
 script:
