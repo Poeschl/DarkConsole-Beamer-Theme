@@ -3,7 +3,7 @@
 # If you edit this file, you might also have
 # to edit debian-control-texlive-in.txt to
 # reflect your changes.
-selected_scheme scheme-full
+selected_scheme scheme-basic
 TEXDIR /usr/local/texlive/2016
 TEXMFCONFIG ~/.texlive2016/texmf-config
 TEXMFHOME ~/texmf
