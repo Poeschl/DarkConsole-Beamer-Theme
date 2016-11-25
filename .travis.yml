@@ -9,7 +9,7 @@ before_install:
 
 script:
   - mkdir build
-  - /opt/texbin/pdflatex -interaction=nonstopmode -halt-on-error -output-directory build Example_Presentation.tex
+  - /opt/texbin/pdflatex -shell-escape -interaction=nonstopmode -halt-on-error -output-directory build Example_Presentation.tex
   - /opt/texbin/chktex build/Example_Presentation.tex
 
 after_failure:
