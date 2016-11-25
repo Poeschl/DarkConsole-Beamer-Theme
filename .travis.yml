@@ -17,13 +17,14 @@ before_script:
 script:
   - mkdir build
   - /opt/texbin/pdflatex ${LATEX_PARA} Example_Presentation.tex
-  - cd build && /opt/texbin/bibtex Example_Presentation.aux && cd ..
+  - /opt/texbin/bibtex Example_Presentation.aux
   - /opt/texbin/pdflatex ${LATEX_PARA} Example_Presentation.tex
   - /opt/texbin/pdflatex ${LATEX_PARA} Example_Presentation.tex
 
 after_failure:
   # - ls /opt/texbin
   # - cat $TRAVIS_BUILD_DIR/.buildscripts/install-tl-1.log
+  - ls ${TRAVIS_BUILD_DIR}
 
 deploy:
   provider: releases
