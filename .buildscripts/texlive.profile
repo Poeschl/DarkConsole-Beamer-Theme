@@ -13,11 +13,11 @@ TEXMFSYSVAR /usr/local/texlive/texmf-var
 TEXMFVAR ~/.texlive/texmf-var
 collection-basic 1
 collection-context 1
-collection-fontsrecommended 1
+collection-fontsrecommended 0
 collection-fontutils 1
-collection-genericrecommended 1
+collection-genericrecommended 0
 collection-latex 1
-collection-latexrecommended 1
+collection-latexrecommended 0
 collection-langafrican 0
 collection-langarabic 0
 collection-langcjk 0
