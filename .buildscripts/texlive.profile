@@ -36,5 +36,6 @@ collection-langportuguese 0
 collection-langspanish 0
 binary_x86_64-linux 1
 option_doc 0
+option_src 0
 option_write18_restricted 1
 portable 0
