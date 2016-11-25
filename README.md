@@ -22,5 +22,7 @@ To be able to compile the presentation following packages besides the `latex bea
 * xstring
 * framed
 
+You also need the python package pygmentize to do the code formating on the slides.
+
 ---
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/Poeschl/DarkConsole-Beamer-Theme/master/LICENSE)
