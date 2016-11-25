@@ -1,7 +1,7 @@
 sudo: required
 
 env:
-  - LATEX_PARA="-shell-escape -interaction=nonstopmode -halt-on-error -output-directory build"
+  - LATEX_PARA="-shell-escape -interaction=nonstopmode -halt-on-error"
 
 before_install:
   - sudo pip install Pygments
@@ -15,7 +15,6 @@ before_script:
   - /opt/texbin/chktex Example_Presentation.tex
 
 script:
-  - mkdir build
   - /opt/texbin/pdflatex ${LATEX_PARA} Example_Presentation.tex
   - /opt/texbin/bibtex Example_Presentation.aux
   - /opt/texbin/pdflatex ${LATEX_PARA} Example_Presentation.tex
@@ -24,12 +23,12 @@ script:
 after_failure:
   # - ls /opt/texbin
   # - cat $TRAVIS_BUILD_DIR/.buildscripts/install-tl-1.log
-  - ls ${TRAVIS_BUILD_DIR}
+  #- ls ${TRAVIS_BUILD_DIR}
 
 deploy:
   provider: releases
   api_key: ${GH_TOKEN}
-  file: "build/Example_Presentation.pdf"
+  file: "Example_Presentation.pdf"
   file_glob: true
   skip_cleanup: true
   on:
