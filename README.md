@@ -10,6 +10,9 @@ The compiled version as `.pdf` can be found in the release tab, seperated by ver
 ### Needed packages
 To be able to compile the presentation following packages besides the `latex beamer` package are needed:
 
+* beamer
+* xcolor
+* pgf
 * droid (a font)
 * minted
 * fvextra

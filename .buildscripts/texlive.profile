@@ -11,7 +11,6 @@ TEXMFLOCAL /usr/local/texlive/texmf-local
 TEXMFSYSCONFIG /usr/local/texlive/texmf-config
 TEXMFSYSVAR /usr/local/texlive/texmf-var
 TEXMFVAR ~/.texlive/texmf-var
-collection-genericrecommended 1
 collection-langafrican 0
 collection-langarabic 0
 collection-langcjk 0

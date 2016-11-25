@@ -5,12 +5,16 @@ before_install:
   - wget https://github.com/scottkosty/install-tl-ubuntu/raw/master/install-tl-ubuntu
   - chmod +x install-tl-ubuntu && sudo ./install-tl-ubuntu --profile $TRAVIS_BUILD_DIR/.buildscripts/texlive.profile
   - sudo /opt/texbin/tlmgr install droid minted fvextra upquote
+  - ls /opt/texbin
   - cd $TRAVIS_BUILD_DIR
 
 script:
   - mkdir build
   - /opt/texbin/pdflatex -interaction=nonstopmode -halt-on-error -output-directory build Example_Presentation.tex
   - /opt/texbin/chktex build/Example_Presentation.tex
+
+after_failure:
+  - cat $TRAVIS_BUILD_DIR/.buildscripts/install-tl-1.log
 
 deploy:
   provider: releases
