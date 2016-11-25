@@ -26,3 +26,4 @@
 *.tdo
 *.pdf
 build/
+!pictures/*
