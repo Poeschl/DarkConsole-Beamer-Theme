@@ -4,8 +4,7 @@ before_install:
   - cd .buildscripts
   - wget https://github.com/scottkosty/install-tl-ubuntu/raw/master/install-tl-ubuntu
   - chmod +x install-tl-ubuntu && sudo ./install-tl-ubuntu --profile $TRAVIS_BUILD_DIR/.buildscripts/texlive.profile
-  - sudo /opt/texbin/tlmgr install droid minted fvextra upquote
-  - ls /opt/texbin
+  - sudo /opt/texbin/tlmgr install beamer xcolor pgf droid minted fvextra upquote
   - cd $TRAVIS_BUILD_DIR
 
 script:
@@ -14,6 +13,7 @@ script:
   - /opt/texbin/chktex build/Example_Presentation.tex
 
 after_failure:
+  - ls /opt/texbin
   - cat $TRAVIS_BUILD_DIR/.buildscripts/install-tl-1.log
 
 deploy:
