@@ -13,18 +13,19 @@ before_install:
 
 before_script:
   - /opt/texbin/chktex Example_Presentation.tex
+  - mkdir build
 
 script:
-  - mkdir build
-  - /opt/texbin/pdflatex ${LATEX_PARA} Example_Presentation.tex
-  - /opt/texbin/bibtex build/Example_Presentation.aux
-  - /opt/texbin/pdflatex ${LATEX_PARA} Example_Presentation.tex
-  - /opt/texbin/pdflatex ${LATEX_PARA} Example_Presentation.tex
+  - /opt/texbin/pdflatex ${LATEX_PARA} Example_Presentation.tex > /dev/null &&
+  /opt/texbin/bibtex build/Example_Presentation.aux > /dev/null &&
+  /opt/texbin/pdflatex ${LATEX_PARA} Example_Presentation.tex > /dev/null &&
+  /opt/texbin/pdflatex ${LATEX_PARA} Example_Presentation.tex > /dev/null &&
 
 after_failure:
   # - ls /opt/texbin
   # - cat $TRAVIS_BUILD_DIR/.buildscripts/install-tl-1.log
-  - ls ${TRAVIS_BUILD_DIR}
+  # - ls ${TRAVIS_BUILD_DIR}
+  - cat build\Example_Presentation.log
 
 deploy:
   provider: releases
