@@ -12,10 +12,10 @@ before_install:
   - cd ${TRAVIS_BUILD_DIR}
 
 before_script:
-  - /opt/texbin/chktex Example_Presentation.tex
   - mkdir build
 
 script:
+  - /opt/texbin/chktex Example_Presentation.tex
   - /opt/texbin/pdflatex ${LATEX_PARA} Example_Presentation.tex > /dev/null
   - /opt/texbin/bibtex build/Example_Presentation.aux > /dev/null
   - /opt/texbin/pdflatex ${LATEX_PARA} Example_Presentation.tex > /dev/null
