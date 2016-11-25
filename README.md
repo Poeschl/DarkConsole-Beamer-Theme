@@ -19,6 +19,7 @@ To be able to compile the presentation following packages besides the `latex bea
 * upquote
 * slantsc
 * ifplatform
+* xstring
 
 ---
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/Poeschl/DarkConsole-Beamer-Theme/master/LICENSE)
