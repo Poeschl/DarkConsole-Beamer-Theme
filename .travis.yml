@@ -1,17 +1,24 @@
 sudo: required
 
+env:
+  - LATEX_PARA="-shell-escape -interaction=nonstopmode -halt-on-error -output-directory build"
+
 before_install:
   - sudo pip install Pygments
   - cd .buildscripts
   - wget https://github.com/scottkosty/install-tl-ubuntu/raw/master/install-tl-ubuntu
-  - chmod +x install-tl-ubuntu && sudo ./install-tl-ubuntu --profile $TRAVIS_BUILD_DIR/.buildscripts/texlive.profile
+  - chmod +x install-tl-ubuntu && sudo ./install-tl-ubuntu --profile ${TRAVIS_BUILD_DIR}/.buildscripts/texlive.profile
   - sudo /opt/texbin/tlmgr install chktex beamer xcolor pgf droid minted fvextra upquote slantsc ifplatform xstring framed
-  - cd $TRAVIS_BUILD_DIR
+
+before_script:
+  - /opt/texbin/chktex Example_Presentation.tex
 
 script:
   - mkdir build
-  - /opt/texbin/pdflatex -shell-escape -interaction=nonstopmode -halt-on-error -output-directory build Example_Presentation.tex
-  - /opt/texbin/chktex Example_Presentation.tex
+  - /opt/texbin/pdflatex ${LATEX_PARA} Example_Presentation.tex
+  - cd build && /opt/texbin/bibtex Example_Presentation.aux && cd ..
+  - /opt/texbin/pdflatex ${LATEX_PARA} Example_Presentation.tex
+  - /opt/texbin/pdflatex ${LATEX_PARA} Example_Presentation.tex
 
 after_failure:
   # - ls /opt/texbin
