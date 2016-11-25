@@ -10,13 +10,13 @@ before_install:
 script:
   - mkdir build
   - /opt/texbin/pdflatex -interaction=nonstopmode -halt-on-error -output-directory build Example_Presentation.tex
+  - /opt/texbin/chktex build/Example_Presentation.tex
 
-# deploy:
-#   provider: releases
-#   api_key:
-#     secure: [YOUR KEY]
-#   file:
-#   - build/Example_Presentation.pdf
-#   skip_cleanup: true
-#   on:
-#     tags: true
+deploy:
+  provider: releases
+  api_key: ${GH_TOKEN}
+  file: "build/Example_Presentation.pdf"
+  file_glob: true
+  skip_cleanup: true
+  on:
+    tags: true
