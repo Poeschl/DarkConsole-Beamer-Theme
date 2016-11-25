@@ -16,10 +16,10 @@ before_script:
   - mkdir build
 
 script:
-  - /opt/texbin/pdflatex ${LATEX_PARA} Example_Presentation.tex > /dev/null &&
-  - /opt/texbin/bibtex build/Example_Presentation.aux > /dev/null &&
-  - /opt/texbin/pdflatex ${LATEX_PARA} Example_Presentation.tex > /dev/null &&
-  - /opt/texbin/pdflatex ${LATEX_PARA} Example_Presentation.tex > /dev/null &&
+  - /opt/texbin/pdflatex ${LATEX_PARA} Example_Presentation.tex > /dev/null
+  - /opt/texbin/bibtex build/Example_Presentation.aux > /dev/null
+  - /opt/texbin/pdflatex ${LATEX_PARA} Example_Presentation.tex > /dev/null
+  - /opt/texbin/pdflatex ${LATEX_PARA} Example_Presentation.tex > /dev/null
 
 after_failure:
   # - ls /opt/texbin
